@@ -13,7 +13,7 @@ public class Example {
         PRINT,
         POP,
         CONST, encodeObject(UNDEFINED, dict),
-        RET
+        RET,
 
         /*CONST, encodeObject(newFunction("addTwo", new Code(new int[]{
             LOOKUP, encodeObject("+", dict),

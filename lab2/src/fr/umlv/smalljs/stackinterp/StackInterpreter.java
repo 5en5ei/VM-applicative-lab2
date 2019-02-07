@@ -83,7 +83,8 @@ public class StackInterpreter {
         throw new UnsupportedOperationException("TODO DUP");
       }
       case Instructions.POP:
-        throw new UnsupportedOperationException("TODO POP");
+        --sp;
+        continue;
       case Instructions.FUNCALL: {
         throw new UnsupportedOperationException("TODO FUNCALL");
         /*
@@ -123,8 +124,8 @@ public class StackInterpreter {
         */
       }
       case Instructions.RET: {
-        throw new UnsupportedOperationException("TODO RET");
-        /*
+          return decodeAnyValue(pop(stack, --sp), dict);
+          /*
         //DEBUG
         //dumpStack(stack, sp, bp, dict);
         
