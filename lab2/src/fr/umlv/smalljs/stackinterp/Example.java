@@ -62,7 +62,7 @@ public class Example {
         PRINT,
         POP,
         CONST, encodeObject(UNDEFINED, dict),
-        RET*/
+        RET
     };
   }
 
