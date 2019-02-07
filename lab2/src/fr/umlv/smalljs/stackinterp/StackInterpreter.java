@@ -69,10 +69,16 @@ public class StackInterpreter {
         push(stack, sp++, instrs[pc++]);
         continue;
       case Instructions.LOOKUP: {
-        throw new UnsupportedOperationException("TODO LOOKUP");
+          String name = (String)decodeObject(instrs[pc++], dict);
+          Object value = globalEnv.lookup(name);
+          push(stack, sp++, encodeAnyValue(value, dict));
+          continue;
       }
       case Instructions.REGISTER: {
-        throw new UnsupportedOperationException("TODO REGISTER");
+          String name = (String)decodeObject(instrs[pc++], dict);
+          Object value = decodeAnyValue(pop(stack, --sp), dict);
+          globalEnv.register(name,value);
+          continue;
       }
       case Instructions.LOAD:
         throw new UnsupportedOperationException("TODO LOAD");
@@ -80,7 +86,9 @@ public class StackInterpreter {
         throw new UnsupportedOperationException("TODO STORE");
       }
       case Instructions.DUP: {
-        throw new UnsupportedOperationException("TODO DUP");
+          int value = peek(stack, sp);
+          push(stack,sp++, value);
+          continue;
       }
       case Instructions.POP:
         --sp;
