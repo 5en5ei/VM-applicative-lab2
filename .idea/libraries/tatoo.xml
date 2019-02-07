@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="tatoo">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/tatoo-runtime.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
