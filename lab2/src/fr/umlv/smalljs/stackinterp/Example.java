@@ -9,7 +9,13 @@ import fr.umlv.smalljs.rt.JSObject;
 public class Example {
   private static int[] topLevel(Dictionary dict, JSObject globalEnv) {
     return new int[]{
-        CONST, encodeObject(newFunction("addTwo", new Code(new int[]{
+        CONST, encodeSmallInt(42),
+        PRINT,
+        POP,
+        CONST, encodeObject(UNDEFINED, dict),
+        RET
+
+        /*CONST, encodeObject(newFunction("addTwo", new Code(new int[]{
             LOOKUP, encodeObject("+", dict),
             LOAD, 0,
             CONST, encodeSmallInt(2),
@@ -23,7 +29,7 @@ public class Example {
         PRINT,
         POP,
         CONST, encodeObject(UNDEFINED, dict),
-        RET
+        RET*/
     };
   }
 
