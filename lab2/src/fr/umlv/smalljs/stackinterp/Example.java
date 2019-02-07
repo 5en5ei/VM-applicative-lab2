@@ -18,7 +18,7 @@ public class Example {
         RET,*/
 
         // Q2
-        CONST, encodeSmallInt(3),
+        /*CONST, encodeSmallInt(3),
         DUP,
         REGISTER, encodeObject("a", dict),
         POP,
@@ -26,10 +26,29 @@ public class Example {
         PRINT,
         POP,
         CONST, encodeObject(UNDEFINED, dict),
-        RET,
+        RET,*/
+
+        // Q3
+        /*CONST, encodeSmallInt(3),
+        DUP,
+        REGISTER, encodeObject("b", dict),
+        DUP,
+        REGISTER, encodeObject("a", dict),
+        POP,
+
+        LOOKUP, encodeObject("a", dict),
+        PRINT,
+        POP,
+
+        LOOKUP, encodeObject("b", dict),
+        PRINT,
+        POP,
+
+        CONST, encodeObject(UNDEFINED, dict),
+        RET,*/
 
 
-        /*CONST, encodeObject(newFunction("addTwo", new Code(new int[]{
+        CONST, encodeObject(newFunction("addTwo", new Code(new int[]{
             LOOKUP, encodeObject("+", dict),
             LOAD, 0,
             CONST, encodeSmallInt(2),
