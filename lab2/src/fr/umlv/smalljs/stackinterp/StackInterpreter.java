@@ -94,14 +94,13 @@ public class StackInterpreter {
         --sp;
         continue;
       case Instructions.FUNCALL: {
-        throw new UnsupportedOperationException("TODO FUNCALL");
-        /*
+
         //DEBUG
         //dumpStack(stack, sp, bp, dict);
 
         JSObject oldFunction = function;
         int argumentCount = instrs[pc++];
-        function = null;
+        function = (JSObject)decodeObject(peek(stack, sp- argumentCount),dict);
         Object asCode = function.lookup("__code__");
         if (asCode == UNDEFINED) {  // native call !
           // call function.invoke() with the right arguments
@@ -124,12 +123,11 @@ public class StackInterpreter {
         instrs = code.getInstrs();
         pc = 0;
         bp = 0;
-        sp = 0;
+        sp = sp +1;
 
         //DEBUG
         //dumpStack(stack, sp, bp, dict);
         continue;
-        */
       }
       case Instructions.RET: {
           return decodeAnyValue(pop(stack, --sp), dict);

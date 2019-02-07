@@ -48,7 +48,7 @@ public class Example {
         RET,*/
 
 
-        CONST, encodeObject(newFunction("addTwo", new Code(new int[]{
+        /*CONST, encodeObject(newFunction("addTwo", new Code(new int[]{
             LOOKUP, encodeObject("+", dict),
             LOAD, 0,
             CONST, encodeSmallInt(2),
@@ -59,6 +59,16 @@ public class Example {
         LOOKUP, encodeObject("addTwo", dict),
         CONST, encodeSmallInt(5),
         FUNCALL, 1,
+        */
+
+        CONST, encodeObject(newFunction("lambda", new Code(new int[]{
+            CONST, encodeSmallInt(42),
+            RET,
+        }, 0, 0), dict, globalEnv), dict),
+
+        REGISTER, encodeObject("a", dict),
+        LOOKUP, encodeObject("a", dict),
+        FUNCALL, 0,
         PRINT,
         POP,
         CONST, encodeObject(UNDEFINED, dict),
