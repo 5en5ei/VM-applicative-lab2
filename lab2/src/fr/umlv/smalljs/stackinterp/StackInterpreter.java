@@ -160,7 +160,7 @@ public class StackInterpreter {
       }
       
       case Instructions.PRINT: {
-        int value = pop(stack, --sp);
+        int value = peek(stack, sp);
         System.out.println(decodeAnyValue(value, dict));
         continue;
       }
